@@ -69,6 +69,7 @@ const updateOrderToPaid = asyncHandler(async (req, res) => {
   }
 });
 
+<<<<<<< HEAD
 const updateOrderToDeliver = asyncHandler(async (req, res) => {
   const order = await Order.findById(req.params.id);
 
@@ -104,3 +105,6 @@ export {
   getOrders,
   updateOrderToDeliver
 };
+=======
+export { addOrderItems, getOrderById, updateOrderToPaid };
+>>>>>>> fb81ae0978b89e4a2a835f959b99d76296a17c96

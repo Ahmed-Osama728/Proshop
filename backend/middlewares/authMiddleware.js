@@ -26,11 +26,16 @@ const protect = asyncHandler(async (req, res, next) => {
     }
     if (!token) {
       res.status(401);
+<<<<<<< HEAD
       throw new Error('Not Authorized, No Token ');
+=======
+      throw new Error('Not authorized, no token ');
+>>>>>>> fb81ae0978b89e4a2a835f959b99d76296a17c96
     }
   }
 });
 
+<<<<<<< HEAD
 const admin = (req, res, next) => {
   if (req.user && req.user.isAdmin) {
     next();
@@ -40,3 +45,6 @@ const admin = (req, res, next) => {
   }
 };
 export { protect, admin };
+=======
+export { protect };
+>>>>>>> fb81ae0978b89e4a2a835f959b99d76296a17c96

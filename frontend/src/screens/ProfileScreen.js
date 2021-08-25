@@ -6,15 +6,23 @@ import {
   FormLabel,
   Row,
   Form,
+<<<<<<< HEAD
   FormGroup,
   Table
 } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
+=======
+  FormGroup
+} from 'react-bootstrap';
+>>>>>>> fb81ae0978b89e4a2a835f959b99d76296a17c96
 import { useDispatch, useSelector } from 'react-redux';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
 import { getUserDetails, updateUserProfile } from '../actions/userActions';
+<<<<<<< HEAD
 import { listMyOrders } from '../actions/ordersActions';
+=======
+>>>>>>> fb81ae0978b89e4a2a835f959b99d76296a17c96
 
 const ProfileScreen = ({ location, history }) => {
   const [name, setName] = useState('');
@@ -23,6 +31,7 @@ const ProfileScreen = ({ location, history }) => {
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState(null);
 
+<<<<<<< HEAD
   const dispatch = useDispatch();
 
   const userDetails = useSelector((state) => state.userDetails);
@@ -59,6 +68,42 @@ const ProfileScreen = ({ location, history }) => {
       dispatch(updateUserProfile({ id: user._id, name, email, password }));
     }
   };
+=======
+  const dispatch = useDispatch()
+
+  const userDetails = useSelector((state) => state.userDetails)
+  const { loading, error, user } = userDetails
+
+  const userLogin = useSelector((state) => state.userLogin)
+  const { userInfo } = userLogin
+
+  const userUpdateProfile = useSelector((state) => state.userUpdateProfile)
+  const { success } = userUpdateProfile
+
+
+  useEffect(() => {
+    if (!userInfo) {
+      history.push('/login')
+    } else {
+      if (!user || !user.name) {
+        dispatch(getUserDetails('profile'))
+      } else {
+        setName(user.name)
+        setEmail(user.email)
+      }
+    }
+  }, [dispatch, history, userInfo, user])
+
+  const submitHandler = (e) => {
+    e.preventDefault()
+    if (password !== confirmPassword) {
+      setMessage('Passwords do not match')
+    } else {
+      dispatch(updateUserProfile({ id: user._id, name, email, password }))
+    }
+  }
+
+>>>>>>> fb81ae0978b89e4a2a835f959b99d76296a17c96
 
   return (
     <Row>
@@ -112,6 +157,7 @@ const ProfileScreen = ({ location, history }) => {
       </Col>
       <Col md={9}>
         <h2>My Orders</h2>
+<<<<<<< HEAD
         {loadingOrders ? (
           <Loader />
         ) : loadingOrders ? (
@@ -160,6 +206,8 @@ const ProfileScreen = ({ location, history }) => {
             </tbody>
           </Table>
         )}
+=======
+>>>>>>> fb81ae0978b89e4a2a835f959b99d76296a17c96
       </Col>
     </Row>
   );

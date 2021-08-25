@@ -5,21 +5,34 @@ import { useDispatch, useSelector } from 'react-redux';
 import { productList } from '../actions/productActions';
 import Loader from '../components/Loader';
 import Message from '../components/Message';
+<<<<<<< HEAD
 import Paginate from '../components/Paginate';
 
 const HomeScreen = ({ match }) => {
   const keyword = match.params.keyword;
   // const pageNumber = match.params.pageNumber || 1;
 
+=======
+
+const HomeScreen = () => {
+>>>>>>> fb81ae0978b89e4a2a835f959b99d76296a17c96
   const dispatch = useDispatch();
 
   const listProducts = useSelector((state) => state.productList);
 
+<<<<<<< HEAD
   const { loading, products, error, page, pages } = listProducts;
 
   useEffect(() => {
     dispatch(productList(keyword));
   }, [dispatch, keyword]);
+=======
+  const { loading, products, error } = listProducts;
+
+  useEffect(() => {
+    dispatch(productList());
+  }, [dispatch]);
+>>>>>>> fb81ae0978b89e4a2a835f959b99d76296a17c96
   return (
     <div>
       <h1>Latest Products</h1>
@@ -37,11 +50,14 @@ const HomeScreen = ({ match }) => {
                 </Col>
               ))}
             </Row>
+<<<<<<< HEAD
             <Paginate
               pages={pages}
               page={page}
               keyword={keyword ? keyword : ''}
             />
+=======
+>>>>>>> fb81ae0978b89e4a2a835f959b99d76296a17c96
           </>
         )
       )}

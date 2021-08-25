@@ -10,6 +10,7 @@ import {
   USER_REGISTER_FAIL,
   USER_REGISTER_REQUEST,
   USER_REGISTER_SUCCESS,
+<<<<<<< HEAD
   USER_UPDATE_PROFILE_REQUEST,
   USER_UPDATE_PROFILE_SUCCESS,
   USER_UPDATE_PROFILE_FAIL,
@@ -24,6 +25,12 @@ import {
   USER_UPDATE_FAIL
 } from '../constants/loginConstants';
 import { ORDER_LIST_MY_RESET } from '../constants/ordersConstants';
+=======
+   USER_UPDATE_PROFILE_REQUEST,
+   USER_UPDATE_PROFILE_SUCCESS,
+   USER_UPDATE_PROFILE_FAIL
+} from '../constants/loginConstants';
+>>>>>>> fb81ae0978b89e4a2a835f959b99d76296a17c96
 
 export const login = (email, password) => async (dispatch) => {
   try {
@@ -56,7 +63,10 @@ export const logout = () => (dispatch) => {
   localStorage.removeItem('userInfo');
 
   dispatch({ type: USER_LOGOUT });
+<<<<<<< HEAD
   dispatch({ type: ORDER_LIST_MY_RESET });
+=======
+>>>>>>> fb81ae0978b89e4a2a835f959b99d76296a17c96
 };
 
 export const register = (email, password, name) => async (dispatch) => {
@@ -90,9 +100,13 @@ export const register = (email, password, name) => async (dispatch) => {
 export const getUserDetails = (id) => async (dispatch, getState) => {
   try {
     dispatch({ type: USER_DETAILS_REQUEST });
+<<<<<<< HEAD
     const {
       userLogin: { userInfo }
     } = getState();
+=======
+const { userLogin: { userInfo } } = getState()
+>>>>>>> fb81ae0978b89e4a2a835f959b99d76296a17c96
     const config = {
       headers: {
         'Content-Type': 'application/json',
@@ -116,6 +130,7 @@ export const getUserDetails = (id) => async (dispatch, getState) => {
     });
   }
 };
+<<<<<<< HEAD
 
 export const updateUserProfile = (user) => async (dispatch, getState) => {
   try {
@@ -123,13 +138,27 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
     const {
       userLogin: { userInfo }
     } = getState();
+=======
+export const updateUserProfile = (user) => async (dispatch, getState) => {
+  try {
+    dispatch({ type: USER_UPDATE_PROFILE_REQUEST });
+const { userLogin: { userInfo } } = getState()
+>>>>>>> fb81ae0978b89e4a2a835f959b99d76296a17c96
     const config = {
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${userInfo.token}`
       }
     };
+<<<<<<< HEAD
     const { data } = await axios.put(`/api/users/profile`, user, config);
+=======
+    const { data } = await axios.put(
+      `/api/users/profile`,
+user,
+      config
+    );
+>>>>>>> fb81ae0978b89e4a2a835f959b99d76296a17c96
 
     dispatch({ type: USER_UPDATE_PROFILE_SUCCESS, payload: data });
   } catch (error) {
@@ -142,6 +171,7 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
     });
   }
 };
+<<<<<<< HEAD
 
 export const listUsers = () => async (dispatch, getState) => {
   try {
@@ -221,3 +251,5 @@ export const updateUser = (user) => async (dispatch, getState) => {
     });
   }
 };
+=======
+>>>>>>> fb81ae0978b89e4a2a835f959b99d76296a17c96

@@ -1,4 +1,5 @@
 import express from 'express';
+<<<<<<< HEAD
 import path from 'path';
 import connectDB from './config/db.js';
 import dotenv from 'dotenv';
@@ -18,15 +19,34 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 app.use(express.json());
+=======
+import connectDB from './config/db.js';
+import dotenv from 'dotenv';
+import productRoutes from './routes/productRoutes.js';
+import userRoutes from './routes/userAuthRoute.js';
+import orderRoutes from './routes/orderRoutes.js';
+import { errorHandler, notFound } from './middlewares/errorMiddleware.js';
+dotenv.config();
+connectDB();
+const app = express();
+app.use(express.json());
+app.get('/', (req, res) => {
+  res.send('API is running');
+});
+>>>>>>> fb81ae0978b89e4a2a835f959b99d76296a17c96
 
 app.use('/api/products', productRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/orders', orderRoutes);
+<<<<<<< HEAD
 app.use('/api/upload', uploadRoutes);
+=======
+>>>>>>> fb81ae0978b89e4a2a835f959b99d76296a17c96
 
 app.get('/api/config/paypal', (req, res) =>
   res.send(process.env.PAYPAL_CLINT_ID)
 );
+<<<<<<< HEAD
 
 const __dirname = path.resolve();
 app.use('/upload', express.static(path.join(__dirname, '/uploads')));
@@ -43,6 +63,8 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 n;
+=======
+>>>>>>> fb81ae0978b89e4a2a835f959b99d76296a17c96
 app.use(notFound);
 
 app.use(errorHandler);

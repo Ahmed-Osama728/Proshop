@@ -4,6 +4,7 @@ import {
   PRODUCT_LIST_FAIL,
   PRODUCT_DETAILS_REQUEST,
   PRODUCT_DETAILS_SUCCESS,
+<<<<<<< HEAD
   PRODUCT_DETAILS_FAIL,
   PRODUCT_DELETE_REQUEST,
   PRODUCT_DELETE_SUCCESS,
@@ -18,10 +19,14 @@ import {
   PRODUCT_CREATE_REVIEW_SUCCESS,
   PRODUCT_CREATE_REVIEW_FAIL,
   PRODUCT_CREATE_REVIEW_RESET
+=======
+  PRODUCT_DETAILS_FAIL
+>>>>>>> fb81ae0978b89e4a2a835f959b99d76296a17c96
 } from '../constants/productConstants';
 export const productListReducer = (state = { products: [] }, action) => {
   switch (action.type) {
     case PRODUCT_LIST_REQUEST:
+<<<<<<< HEAD
       return { loading: true, products: [] };
     case PRODUCT_LIST_SUCCESS:
       return {
@@ -29,6 +34,13 @@ export const productListReducer = (state = { products: [] }, action) => {
         products: action.payload.products,
         pages: action.payload.pages,
         page: action.payload.page
+=======
+      return { loading: true, products: {} };
+    case PRODUCT_LIST_SUCCESS:
+      return {
+        loading: false,
+        products: action.payload
+>>>>>>> fb81ae0978b89e4a2a835f959b99d76296a17c96
       };
     case PRODUCT_LIST_FAIL:
       return { loading: false, error: action.payload };
@@ -52,6 +64,7 @@ export const productDetailsReducer = (
       return state;
   }
 };
+<<<<<<< HEAD
 
 export const productDeleteReducer = (state = {}, action) => {
   switch (action.type) {
@@ -115,3 +128,5 @@ export const productCreateReviewReducer = (state = {}, action) => {
       return state;
   }
 };
+=======
+>>>>>>> fb81ae0978b89e4a2a835f959b99d76296a17c96

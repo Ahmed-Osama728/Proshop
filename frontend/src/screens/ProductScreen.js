@@ -4,7 +4,10 @@ import {
   Button,
   Card,
   Col,
+<<<<<<< HEAD
   Form,
+=======
+>>>>>>> fb81ae0978b89e4a2a835f959b99d76296a17c96
   FormControl,
   Image,
   ListGroup,
@@ -13,6 +16,7 @@ import {
 } from 'react-bootstrap';
 import Rating from '../components/Rating';
 import { useDispatch, useSelector } from 'react-redux';
+<<<<<<< HEAD
 import { createProductReview, productDetails } from '../actions/productActions';
 import Loader from '../components/Loader';
 import Message from '../components/Message';
@@ -60,6 +64,23 @@ const ProductScreen = ({ history, match }) => {
       })
     );
   };
+=======
+import { productDetails } from '../actions/productActions';
+import Loader from '../components/Loader';
+import Message from '../components/Message';
+const ProductScreen = ({ history, match }) => {
+  const [qty, setQty] = useState(1);
+  const dispatch = useDispatch();
+
+  const listProductDetails = useSelector((state) => state.productDetails);
+  const { loading, error, product } = listProductDetails;
+  useEffect(() => {
+    dispatch(productDetails(match.params.id));
+  }, [dispatch, match]);
+  const addToCartHandler = () => {
+    history.push(`/cart/${match.params.id}?qty=${qty}`);
+  };
+>>>>>>> fb81ae0978b89e4a2a835f959b99d76296a17c96
   return (
     <>
       <Link className="btn btn-light my-3" to="/">
@@ -71,6 +92,7 @@ const ProductScreen = ({ history, match }) => {
         <Message variant="danger" />
       ) : (
         product && (
+<<<<<<< HEAD
           <>
             <Row>
               <Col md={6}>
@@ -212,6 +234,76 @@ const ProductScreen = ({ history, match }) => {
               </Col>
             </Row>
           </>
+=======
+          <Row>
+            <Col md={6}>
+              <Image src={product.image} alt={product.name} fluid></Image>
+            </Col>
+            <Col md={3}>
+              <ListGroup variant="flush">
+                <ListGroup.Item>{product.name}</ListGroup.Item>
+                <ListGroup.Item>
+                  <Rating
+                    value={product.rating}
+                    text={`${product.numReviews} Reviews`}
+                  ></Rating>
+                </ListGroup.Item>
+                <ListGroupItem>Price: {product.price}</ListGroupItem>
+                <ListGroupItem>
+                  Description: {product.description}
+                </ListGroupItem>
+              </ListGroup>
+            </Col>
+            <Col md={3}>
+              <Card>
+                <ListGroup>
+                  <ListGroupItem>
+                    <Row>
+                      <Col>Price:</Col>
+                      <Col>{product.price}</Col>
+                    </Row>{' '}
+                  </ListGroupItem>
+                  <ListGroupItem>
+                    <Row>
+                      <Col>Status:</Col>
+                      <Col>
+                        {product.countInStock > 0 ? 'In Stock' : 'Out Of Stock'}
+                      </Col>
+                    </Row>{' '}
+                  </ListGroupItem>
+                  <ListGroupItem>
+                    <Row>
+                      <Col>Quatity: </Col>
+                      <Col>
+                        <FormControl
+                          as="select"
+                          value={qty}
+                          onChange={(e) => setQty(e.target.value)}
+                        >
+                          {[...Array(product.countInStock).keys()].map((x) => (
+                            <option key={x + 1} value={x + 1}>
+                              {x + 1}
+                            </option>
+                          ))}
+                        </FormControl>
+                      </Col>
+                    </Row>
+                  </ListGroupItem>
+                  <ListGroupItem>
+                    <Button
+                      onClick={addToCartHandler}
+                      type="button"
+                      className="btn btn-block"
+                      disabled={product.countInStock === 0}
+                    >
+                      Add To Cart
+                    </Button>
+                  </ListGroupItem>
+                </ListGroup>
+              </Card>
+            </Col>
+          </Row>
+>>>>>>> fb81ae0978b89e4a2a835f959b99d76296a17c96
         )
       )}
     </>

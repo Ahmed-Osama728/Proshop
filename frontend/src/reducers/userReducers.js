@@ -12,6 +12,7 @@ import {
   USER_UPDATE_PROFILE_SUCCESS,
   USER_UPDATE_PROFILE_REQUEST,
   USER_UPDATE_PROFILE_FAIL,
+<<<<<<< HEAD
   USER_UPDATE_PROFILE_RESET,
   USER_DETAILS_RESET,
   USER_LIST_FAIL,
@@ -25,6 +26,9 @@ import {
   USER_UPDATE_SUCCESS,
   USER_UPDATE_FAIL,
   USER_UPDATE_RESET
+=======
+  USER_UPDATE_PROFILE_RESET
+>>>>>>> fb81ae0978b89e4a2a835f959b99d76296a17c96
 } from '../constants/loginConstants';
 
 export const userLoginReducer = (state = {}, action) => {
@@ -64,6 +68,7 @@ export const userRegisterReducer = (state = {}, action) => {
 export const userDetailsReducer = (state = { user: {} }, action) => {
   switch (action.type) {
     case USER_DETAILS_REQUEST:
+<<<<<<< HEAD
       return { ...state, loading: true };
     case USER_DETAILS_SUCCESS:
       return { loading: false, user: action.payload };
@@ -76,19 +81,40 @@ export const userDetailsReducer = (state = { user: {} }, action) => {
       return state;
   }
 };
+=======
+      return { ...state, loading: true }
+    case USER_DETAILS_SUCCESS:
+      return { loading: false, user: action.payload }
+    case USER_DETAILS_FAIL:
+      return { loading: false, error: action.payload }
+    
+    default:
+      return state
+  }
+}
+>>>>>>> fb81ae0978b89e4a2a835f959b99d76296a17c96
 
 export const userUpdateReducer = (state = {}, action) => {
   switch (action.type) {
     case USER_UPDATE_PROFILE_REQUEST:
+<<<<<<< HEAD
       return { loading: true };
     case USER_UPDATE_PROFILE_SUCCESS:
       return {
         loading: false,
         success: true,
+=======
+      return {  loading: true };
+    case USER_UPDATE_PROFILE_SUCCESS:
+      return {
+        loading: false,
+        success:true,
+>>>>>>> fb81ae0978b89e4a2a835f959b99d76296a17c96
         userInfo: action.payload
       };
     case USER_UPDATE_PROFILE_FAIL:
       return { loading: false, error: action.payload };
+<<<<<<< HEAD
     case USER_UPDATE_PROFILE_RESET:
       return {};
     default:
@@ -144,6 +170,10 @@ export const userUpdateAdminReducer = (state = { users: {} }, action) => {
       return { loading: false, error: action.payload };
     case USER_UPDATE_RESET:
       return { user: {} };
+=======
+case USER_UPDATE_PROFILE_RESET:
+return{}
+>>>>>>> fb81ae0978b89e4a2a835f959b99d76296a17c96
     default:
       return state;
   }

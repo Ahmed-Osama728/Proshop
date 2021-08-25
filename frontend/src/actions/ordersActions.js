@@ -3,6 +3,7 @@ import {
   ORDER_CREATE_FAIL,
   ORDER_CREATE_REQUEST,
   ORDER_CREATE_SUCCESS,
+<<<<<<< HEAD
   ORDER_DELIVER_FAIL,
   ORDER_DELIVER_REQUEST,
   ORDER_DELIVER_SUCCESS,
@@ -15,12 +16,21 @@ import {
   ORDER_LIST_MY_FAIL,
   ORDER_LIST_MY_REQUEST,
   ORDER_LIST_MY_SUCCESS,
+=======
+  ORDER_DETAILS_FAIL,
+  ORDER_DETAILS_REQUEST,
+  ORDER_DETAILS_SUCCESS,
+>>>>>>> fb81ae0978b89e4a2a835f959b99d76296a17c96
   ORDER_PAY_FAIL,
   ORDER_PAY_REQUEST,
   ORDER_PAY_SUCCESS
 } from '../constants/ordersConstants';
 
+<<<<<<< HEAD
 export const createeOrder = (order) => async (dispatch, getState) => {
+=======
+export const createOrder = (order) => async (dispatch, getState) => {
+>>>>>>> fb81ae0978b89e4a2a835f959b99d76296a17c96
   try {
     dispatch({ type: ORDER_CREATE_REQUEST });
     const {
@@ -120,6 +130,7 @@ export const payOrder = (id, paymentResult) => async (dispatch, getState) => {
     });
   }
 };
+<<<<<<< HEAD
 
 export const deliverOrder = (order) => async (dispatch, getState) => {
   try {
@@ -218,3 +229,5 @@ export const listOrders = async (dispatch, getState) => {
     dispatch({ type: ORDER_LIST_ALL_FAIL, payload: message });
   }
 };
+=======
+>>>>>>> fb81ae0978b89e4a2a835f959b99d76296a17c96

@@ -1,6 +1,7 @@
 import express from 'express';
 import {
   getProductById,
+<<<<<<< HEAD
   getProducts,
   deleteProduct,
   updateProduct,
@@ -19,5 +20,14 @@ router
   .get(getProductById)
   .delete(protect, admin, deleteProduct)
   .put(protect, admin, updateProduct);
+=======
+  getProducts
+} from '../controllers/productController.js';
+const router = express.Router();
+
+router.route('/').get(getProducts);
+
+router.route('/:id').get(getProductById);
+>>>>>>> fb81ae0978b89e4a2a835f959b99d76296a17c96
 
 export default router;

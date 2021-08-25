@@ -1,6 +1,7 @@
 import {
   ORDER_CREATE_FAIL,
   ORDER_CREATE_REQUEST,
+<<<<<<< HEAD
   ORDER_CREATE_RESET,
   ORDER_CREATE_SUCCESS,
   ORDER_DELIVER_FAIL,
@@ -16,6 +17,12 @@ import {
   ORDER_LIST_MY_REQUEST,
   ORDER_LIST_MY_RESET,
   ORDER_LIST_MY_SUCCESS,
+=======
+  ORDER_CREATE_SUCCESS,
+  ORDER_DETAILS_FAIL,
+  ORDER_DETAILS_REQUEST,
+  ORDER_DETAILS_SUCCESS,
+>>>>>>> fb81ae0978b89e4a2a835f959b99d76296a17c96
   ORDER_PAY_FAIL,
   ORDER_PAY_REQUEST,
   ORDER_PAY_RESET,
@@ -39,8 +46,11 @@ export const createOrderReducer = (state = {}, action) => {
         loading: false,
         error: action.payload
       };
+<<<<<<< HEAD
     case ORDER_CREATE_RESET:
       return {};
+=======
+>>>>>>> fb81ae0978b89e4a2a835f959b99d76296a17c96
 
     default:
       return state;
@@ -95,6 +105,7 @@ export const orderPayReducer = (state = {}, action) => {
       return state;
   }
 };
+<<<<<<< HEAD
 
 export const orderDeliverReducer = (state = {}, action) => {
   switch (action.type) {
@@ -158,3 +169,5 @@ export const getOrdersReducer = (state = { orders: [] }, action) => {
       return state;
   }
 };
+=======
+>>>>>>> fb81ae0978b89e4a2a835f959b99d76296a17c96

@@ -91,6 +91,7 @@ const updateUserProfile = asyncHandler(async (req, res) => {
   }
 });
 
+<<<<<<< HEAD
 const getUsers = asyncHandler(async (req, res) => {
   const users = await User.find({});
 
@@ -152,3 +153,6 @@ export {
   getUserById,
   updateUser
 };
+=======
+export { userAuth, getUserProfile, registerUser, updateUserProfile };
+>>>>>>> fb81ae0978b89e4a2a835f959b99d76296a17c96

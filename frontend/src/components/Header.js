@@ -1,10 +1,17 @@
 import React from 'react';
+<<<<<<< HEAD
 import { Route } from 'react-router-dom';
 import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../actions/userActions';
 import SearchBox from './SearchBox';
+=======
+import { Navbar, Nav, Container, NavDropdown, Dropdown } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
+import { logout } from '../actions/userActions';
+>>>>>>> fb81ae0978b89e4a2a835f959b99d76296a17c96
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -26,7 +33,12 @@ const Header = () => {
             <Nav className="ml-auto">
               <LinkContainer to="/cart">
                 <Nav.Link>
+<<<<<<< HEAD
                   <i className="fas fa-shopping-cart"></i> Cart
+=======
+                  <i className="fas fa-shopping-cart" />
+                  Cart
+>>>>>>> fb81ae0978b89e4a2a835f959b99d76296a17c96
                 </Nav.Link>
               </LinkContainer>
               {userInfo ? (
@@ -34,13 +46,18 @@ const Header = () => {
                   <LinkContainer to="/profile">
                     <NavDropdown.Item>Profile</NavDropdown.Item>
                   </LinkContainer>
+<<<<<<< HEAD
                   <NavDropdown.Item onClick={logoutHandler}>
                     Logout
                   </NavDropdown.Item>
+=======
+                  <Dropdown.Item onClick={logoutHandler}>Logout</Dropdown.Item>
+>>>>>>> fb81ae0978b89e4a2a835f959b99d76296a17c96
                 </NavDropdown>
               ) : (
                 <LinkContainer to="/login">
                   <Nav.Link>
+<<<<<<< HEAD
                     <i className="fas fa-user"></i> Sign In
                   </Nav.Link>
                 </LinkContainer>
@@ -58,6 +75,13 @@ const Header = () => {
                   </LinkContainer>
                 </NavDropdown>
               )}
+=======
+                    <i className="fas fa-user" />
+                    Sign-In
+                  </Nav.Link>
+                </LinkContainer>
+              )}
+>>>>>>> fb81ae0978b89e4a2a835f959b99d76296a17c96
             </Nav>
           </Navbar.Collapse>
         </Container>
